@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WalkingPrint</string>
+    <string name="access_token">pk.eyJ1IjoiamVvbmhzIiwiYSI6ImNsaXY0ZjE0NDBlb2wzam8yZ3l5em00MzIifQ.4tTPCrSe6vnuj1kRIhsSEA</string>
 </resources>

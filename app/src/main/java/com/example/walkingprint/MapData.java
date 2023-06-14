@@ -1,4 +1,4 @@
-package com.example.cookmap;
+package com.example.walkingprint;
 
 import android.os.Parcel;
 import android.os.Parcelable;

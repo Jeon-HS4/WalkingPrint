@@ -1,7 +1,5 @@
 package com.example.walkingprint;
 
-import static com.mapbox.core.constants.Constants.PRECISION_6;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -26,6 +24,8 @@ import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 
 import android.Manifest;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private MapboxMap map;
     private int count = 0;
     private List<Object> locationDataList;
+    private Button startButton;
+    private Button endButton;
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private static final long LOCATION_UPDATE_INTERVAL = 5000;
@@ -66,7 +68,30 @@ public class MainActivity extends AppCompatActivity {
                 startLocationUpdates();
             }
         });
+
+        startButton = findViewById(R.id.startButton);
+        endButton = findViewById(R.id.endButton);
+
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startButton.setVisibility(View.GONE);
+                endButton.setVisibility(View.VISIBLE);
+                // Add your code to start the timer and marker placement here.
+            }
+        });
+
+        endButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                endButton.setVisibility(View.GONE);
+                startButton.setVisibility(View.VISIBLE);
+                // Add your code to stop the timer and marker placement here.
+            }
+        });
     }
+
+
     private void startLocationUpdates() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
